@@ -14,7 +14,7 @@ blip (id, color, scale))
 --- 
 
 ### Feature: Boss Menu
-- [ ] Create UI (`ox_lib`)
+- [ ] Create UI (lib ui - safe time)
 - [ ] Use job rank to allow staff management
 
 --- 

@@ -12,6 +12,5 @@ shared_scripts {
 }
 
 client_scripts {
-    'businesses/*.lua',
     'client/main.lua',
 }

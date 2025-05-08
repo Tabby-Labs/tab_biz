@@ -4,31 +4,95 @@ local burgershot = {
     businessType = 'restaurant', -- Type of business (restaurant, bar, etc.)
     location = {coords = vec3(-1182.8517, -887.2555, 13.8862), blip = {id = 106, color = 1, scale = 0.8}},
     interactions = {
-        duty = vec3(-1198.5283, -904.4304, 13.8862),
-        washhands = vec3(-1199.7711, -899.3098, 13.8862),
-        bossmenu = vec3(-1188.0540, -905.8120, 13.6323),
+        duty = vec3(-1198.55, -904.75, 14.5),
+        washhands = vec3(-1201.2, -890.95, 14.0),
+        bossmenu = vec3(-1187.4, -906.15, 14.0),
         drinks = {
-            pos = {
-                [1] = vec3(-1199.5912, -896.7819, 13.8862),
-            }
+            {
+                name = 'juice_machine',
+                label = 'Juice Machine',
+                coords = vec3(-1199.75, -896.5, 14.0),
+                menu = {
+                    ['bs_juice_a'] = {
+                        amount = 1,
+                        recipes = {
+                            { name = 'juice_cup', amount = 1}
+                        }
+                    },
+                    ['bs_juice_b'] = {
+                        amount = 1,
+                        recipes = {
+                            { name = 'juice_cup', amount = 1},
+                            { name = 'ice', amount = 1}
+                        }
+                    },
+                }
+            },
+            {
+                name = 'soda_machine',
+                label = 'Soda Machine',
+                coords = vec3(-1197.05, -895.65, 14.0),
+                menu = {
+                    ['bs_soda_a'] = {
+                        amount = 1,
+                        recipes = {
+                            { name = 'soda_cup', amount = 1}
+                        }
+                    },
+                    ['bs_soda_b'] = {
+                        amount = 1,
+                        recipes = {
+                            { name = 'soda_cup', amount = 1},
+                            { name = 'ice', amount = 1}
+                        }
+                    },
+                }
+            },
         },
-        foods = {
-            pos = {
-                [1] = vec3(-1196.7211, -897.8578, 13.8862),
-                [2] = vec3(-1194.8528, -898.3880, 13.8862)
-            }
+        kitchen = {
+            {
+                name = 'cooking_station',
+                label = 'Cooking Station',
+                coords = vec3(-1199.75, -896.5, 14.0),
+                menu = {
+                    ['bs_fries'] = {
+                        amount = 1,
+                        recipes = {
+                            { name = 'bs_frozen_fries', amount = 1}
+                        }
+                    },
+                    ['bs_cooked_patty'] = {
+                        amount = 1,
+                        recipes = {
+                            { name = 'bs_frozen_patty', amount = 1},
+                        }
+                    },
+                }
+            },
+            {
+                name = 'food_prep',
+                label = 'Food Prep',
+                coords = vec3(-1197.05, -895.65, 14.0),
+                menu = {
+                    ['bs_burger'] = {
+                        amount = 1,
+                        recipes = {
+                            { name = 'bs_cooked_patty', amount = 1},
+                            { name = 'bs_burger_bun', amount = 1},
+                            { name = 'bs_lettuce', amount = 1},
+                            { name = 'bs_tomato', amount = 1},
+                            { name = 'bs_onion', amount = 1},
+                        }
+                    },
+                }
+            },
         },
-        tray = {
-            pos = {
-                [1] = vec3(-1194.8529, -895.9547, 13.8862),
-                [2] = vec3(-1194.6354, -894.1411, 13.8862),
-            }
-        },
-        cashier = {
-            pos = {
-                [1] = vec3(-1191.6669, -894.8914, 13.8862),
-            }
-        },
+        -- tray = {
+
+        -- },
+        -- cashier = {
+
+        -- },
     },
 }
 

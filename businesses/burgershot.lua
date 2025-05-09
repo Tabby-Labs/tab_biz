@@ -53,7 +53,7 @@ local burgershot = {
             {
                 name = 'cooking_station',
                 label = 'Cooking Station',
-                coords = vec3(-1199.75, -896.5, 14.0),
+                coords = vec3(-1196.1, -900.0, 13.65),
                 menu = {
                     ['bs_fries'] = {
                         amount = 1,
@@ -70,9 +70,23 @@ local burgershot = {
                 }
             },
             {
+                name = 'dessert_station',
+                label = 'Dessert Station',
+                coords = vec3(-1198.6, -899.4, 13.8),
+                menu = {
+                    ['bs_muffin'] = {
+                        amount = 1,
+                        recipes = {
+                            { name = 'bs_flour', amount = 1},
+                            { name = 'bs_sugar', amount = 1},
+                        }
+                    },
+                }
+            },
+            {
                 name = 'food_prep',
                 label = 'Food Prep',
-                coords = vec3(-1197.05, -895.65, 14.0),
+                coords = vec3(-1194.8, -897.8, 13.9),
                 menu = {
                     ['bs_burger'] = {
                         amount = 1,
@@ -87,15 +101,18 @@ local burgershot = {
                 }
             },
         },
-        -- storage = {
-
-        -- },
-        -- tray = {
-
-        -- },
-        -- cashier = {
-
-        -- },
+        storage = {
+            { coords = vec3(-1202.9, -897.3, 14.4), name = 'fridge', label = 'Fridge', slots = 39, weight = 10000 },
+            { coords = vec3(-1196.55, -901.45, 14.0), name = 'cold_room', label = 'Cold Room', slots = 50, weight = 100000 },
+            { coords = vec3(-1196.55, -901.45, 14.0), name = 'personal', label = 'Personal Stash', slots = 29, weight = 80000, personal = true },
+        },
+        tray = {
+            { coords = vec3(-1195.0, -896.25, 14.1), name = 'tray_pickup_1', label = 'Prepared Foods', slots = 5, weight = 10000 },
+            { coords = vec3(-1194.6, -893.35, 14.0), name = 'tray_pickup_2', label = 'Ready Foods', slots = 5, weight = 10000 },
+        },
+        cashier = {
+            { coords = vec3(-1191.45, -894.1, 14.0) }
+        },
     },
 }
 

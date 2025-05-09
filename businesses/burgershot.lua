@@ -101,18 +101,18 @@ local burgershot = {
                 }
             },
         },
-        storage = {
-            { coords = vec3(-1202.9, -897.3, 14.4), name = 'fridge', label = 'Fridge', slots = 39, weight = 10000 },
-            { coords = vec3(-1196.55, -901.45, 14.0), name = 'cold_room', label = 'Cold Room', slots = 50, weight = 100000 },
-            { coords = vec3(-1196.55, -901.45, 14.0), name = 'personal', label = 'Personal Stash', slots = 29, weight = 80000, personal = true },
-        },
-        tray = {
-            { coords = vec3(-1195.0, -896.25, 14.1), name = 'tray_pickup_1', label = 'Prepared Foods', slots = 5, weight = 10000 },
-            { coords = vec3(-1194.6, -893.35, 14.0), name = 'tray_pickup_2', label = 'Ready Foods', slots = 5, weight = 10000 },
-        },
-        cashier = {
-            { coords = vec3(-1191.45, -894.1, 14.0) }
-        },
+    },
+    storage = {
+        { coords = vec3(-1202.9, -897.3, 14.4), size = 0.5, name = 'fridge', label = 'Fridge', slots = 39, weight = 10000 },
+        { coords = vec3(-1196.55, -901.45, 14.0), size = 1.1, name = 'cold_room', label = 'Cold Room', slots = 50, weight = 100000 },
+        { coords = vec3(-1196.55, -901.45, 14.0), size = 0.5, name = 'personal', label = 'Personal Stash', slots = 29, weight = 80000, personal = true },
+    },
+    tray = {
+        { coords = vec3(-1195.0, -896.25, 14.1), size = 0.5, name = 'tray_pickup_1', label = 'Prepared Foods', slots = 5, weight = 10000 },
+        { coords = vec3(-1194.6, -893.35, 14.0), size = 0.5, name = 'tray_pickup_2', label = 'Ready Foods', slots = 5, weight = 10000 },
+    },
+    cashier = {
+        { coords = vec3(-1191.45, -894.1, 14.0) }
     },
 }
 

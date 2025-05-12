@@ -35,7 +35,7 @@ local function registerMenu(n, t, m, a)
             menu.options[#menu.options+1] = {
                 title = itemInfo.label,
                 description = desc,
-                icon = imgPath:format(item or 'no'),
+                -- icon = imgPath:format(item),
                 onSelect = a,
             }
         end

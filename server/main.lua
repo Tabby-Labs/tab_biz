@@ -1,10 +1,7 @@
-for i = 1, #Config.Businesses do
-    local business = Config.Businesses[i]
-    local job = business.job
-    local label = business.label
-
-    if job then
-        TriggerEvent('esx_society:registerSociety', job, label, ('society_%s'):format(job), ('society_%s'):format(job), ('society_%s'):format(job), {type = 'public'})
-        print('Loaded')
+if Config.EnableService then    
+    for i = 1, #Config.Restaurants do
+        local business = Config.Restaurants[i]
+        local bizName = business.job
+        TriggerEvent('esx_service:activateService', bizName, 100)
     end
 end

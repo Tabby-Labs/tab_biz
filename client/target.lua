@@ -35,7 +35,7 @@ local function registerMenu(n, t, m, a)
             menu.options[#menu.options+1] = {
                 title = itemInfo.label,
                 description = desc,
-                icon = imgPath:format(item),
+                icon = imgPath:format(item or 'no'),
                 onSelect = a,
             }
         end
@@ -46,8 +46,8 @@ local function registerMenu(n, t, m, a)
 end
 
 CreateThread(function()
-    for i = 1, #Config.Businesses do
-        local business = Config.Businesses[i]
+    for i = 1, #Config.Restaurants do
+        local business = Config.Restaurants[i]
         local kitchen = business.kitchen
 
         if business.duty then

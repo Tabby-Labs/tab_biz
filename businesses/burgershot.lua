@@ -1,11 +1,11 @@
 local burgershot = {
     job = 'burgershot', -- Job name
     label = 'Burger Shot', -- Display name
-    businessType = 'restaurant', -- Type of business (restaurant, bar, etc.)
     location = {coords = vec3(-1182.8517, -887.2555, 13.8862), id = 106, color = 1, scale = 0.8},
     duty = vec3(-1198.55, -904.75, 14.5),
     washhands = vec3(-1201.2, -890.95, 14.0),
     bossmenu = vec3(-1187.4, -906.15, 14.0),
+    washMoney = true,
     kitchen = {
         drinks = {
             {

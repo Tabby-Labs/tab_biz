@@ -1,6 +1,51 @@
 local ox_target = exports.ox_target
+local ox_inv = exports.ox_inventory
 
-CreateThread(function(threadId)
+local itemCache = {}
+local imgPath = Config.ImagePath
+
+---@param n string
+---@param t string
+---@param m string
+---@param a function
+---@return table
+local function registerMenu(n, t, m, a)
+    local menu = {
+        id = n,
+        title = t,
+        options = {}
+    }
+
+    for item, data in pairs(m.menu) do
+        local itemInfo = itemCache[item] or ox_inv:Items(item)
+        if not itemCache[item] then itemCache[item] = itemInfo end
+
+        if itemInfo and itemInfo.label then
+            local desc = ''
+
+            for k, recipe in ipairs(data.recipes) do
+                local recipeInfo = itemCache[recipe.name] or ox_inv:Items(recipe.name)
+                if not itemCache[recipe.name] then itemCache[recipe.name] = recipeInfo end
+
+                if recipeInfo and recipeInfo.label then
+                    desc = desc .. ('| x%s %s '):format(recipe.amount, recipeInfo.label)
+                end
+            end
+
+            menu.options[#menu.options+1] = {
+                title = itemInfo.label,
+                description = desc,
+                icon = imgPath:format(item),
+                onSelect = a,
+            }
+        end
+    end
+
+    lib.registerContext(menu)
+    lib.showContext(menu.id)
+end
+
+CreateThread(function()
     for i = 1, #Config.Businesses do
         local business = Config.Businesses[i]
         local kitchen = business.kitchen
@@ -52,7 +97,9 @@ CreateThread(function(threadId)
                         label = 'Boss Menu',
                         icon = 'fa-solid fa-computer',
                         onSelect = function()
-                            print('this must make you to open the boss')
+                            TriggerEvent('esx_society:openBossMenu', business.job, function(menu)
+                                -- 
+                            end, { wash = business.washMoney })
                         end
                     }
                 }
@@ -72,7 +119,13 @@ CreateThread(function(threadId)
                             label = ('%s'):format(drink.label),
                             icon = 'fa-solid fa-cocktail',
                             onSelect = function()
-                                print('this must make you to open the drink menu')
+                                registerMenu(
+                                    ('%s_%s'):format(business.job, drink.name),
+                                    drink.label,
+                                    drink,
+                                    function()
+                                        print('Hello World, I am born today')
+                                    end)
                             end
                         }
                     }
@@ -93,7 +146,13 @@ CreateThread(function(threadId)
                             label = ('%s'):format(food.label),
                             icon = 'fa-solid fa-cocktail',
                             onSelect = function()
-                                print('this must make you to open the foods menu')
+                                registerMenu(
+                                    ('%s_%s'):format(business.job, food.name),
+                                    food.label,
+                                    food,
+                                    function()
+                                        print('Hello World, I am born today')
+                                    end)
                             end
                         }
                     }

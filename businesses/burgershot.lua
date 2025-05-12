@@ -116,4 +116,4 @@ local burgershot = {
     },
 }
 
-Config.Businesses[#Config.Businesses+1] = burgershot
+Config.Restaurants[#Config.Restaurants+1] = burgershot
